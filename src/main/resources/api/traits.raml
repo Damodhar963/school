@@ -1,0 +1,41 @@
+#%RAML 1.0 Library
+# usage:
+
+traits:
+  student:
+    queryParameters:
+      studentid:
+        type: number
+        required: true
+  standard-error-ressponses:
+    responses:
+      400:
+        body:
+          application/json:
+            example: {"status" : "400", "message": "Bad Request"}
+      401:
+        body:
+          application/json:
+            example: {"status" : "401", "message": "Invalid Credentials"}     
+      404:
+        body:
+          application/json:
+            example: {"status" : "404", "message": "Resource Not Found"}
+      405:
+        body:
+          application/json:
+            example: {"status" : "405", "message": "Method Not Allowed"} 
+      500:
+        body:
+          application/json:
+            example: {"status" : "500", "message": "Internal Server Error"}     
+                               
+                  
+                                          
+
+
+  studentactive:
+    queryParameters:
+      isactive:
+        type: boolean
+        required: true          

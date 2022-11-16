@@ -1,0 +1,27 @@
+#%RAML 1.0
+title: School
+
+uses:
+  studentsch: studentschema.raml
+  qstudent: traits.raml
+
+/students:
+  get:
+    is: [qstudent.student, qstudent.studentactive,qstudent.standard-error-ressponses]
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include studentexample.json
+  post:
+    is: [qstudent.student,qstudent.standard-error-ressponses]
+    body:
+      application/json:
+        type: studentsch.studentdetails
+        example: !include studentexample.json
+    responses:
+      201:
+        body:
+          application/json:
+            example: {"message":"added student record succesfully"}
+                            
